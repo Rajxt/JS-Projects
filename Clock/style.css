@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+}
+
+
+.clock {
+    border: 15px solid #333;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hour markers */
+.hour-marker {
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: #333;
+    left: 50%;
+    top: 10px;
+    transform-origin: 2px 140px;
+}
+
+.hour-marker:nth-child(1) { transform: translateX(-50%) rotate(0deg); }
+.hour-marker:nth-child(2) { transform: translateX(-50%) rotate(30deg); }
+.hour-marker:nth-child(3) { transform: translateX(-50%) rotate(60deg); }
+.hour-marker:nth-child(4) { transform: translateX(-50%) rotate(90deg); }
+.hour-marker:nth-child(5) { transform: translateX(-50%) rotate(120deg); }
+.hour-marker:nth-child(6) { transform: translateX(-50%) rotate(150deg); }
+.hour-marker:nth-child(7) { transform: translateX(-50%) rotate(180deg); }
+.hour-marker:nth-child(8) { transform: translateX(-50%) rotate(210deg); }
+.hour-marker:nth-child(9) { transform: translateX(-50%) rotate(240deg); }
+.hour-marker:nth-child(10) { transform: translateX(-50%) rotate(270deg); }
+.hour-marker:nth-child(11) { transform: translateX(-50%) rotate(300deg); }
+.hour-marker:nth-child(12) { transform: translateX(-50%) rotate(330deg); }
+
+/* Clock hands */
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    border-radius: 10px;
+}
+
+.hour-hand {
+    width: 8px;
+    height: 80px;
+    background: #333;
+    margin-left: -4px;
+    z-index: 3;
+}
+
+.minute-hand {
+    width: 6px;
+    height: 110px;
+    background: #666;
+    margin-left: -3px;
+    z-index: 2;
+}
+
+.second-hand {
+    width: 2px;
+    height: 120px;
+    background: #e74c3c;
+    margin-left: -1px;
+    z-index: 4;
+}
+
+/* Center dot */
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Digital time display */
+.digital-time {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}

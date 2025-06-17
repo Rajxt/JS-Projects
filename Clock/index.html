@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analog Clock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="clock">
+    <div class="clock-face">
+        <!-- Hour markers -->
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        <div class="hour-marker"></div>
+        
+        <!-- Clock hands -->
+        <div class="hand hour-hand" id="hourHand"></div>
+        <div class="hand minute-hand" id="minuteHand"></div>
+        <div class="hand second-hand" id="secondHand"></div>
+        
+        <!-- Center dot -->
+        <div class="center-dot"></div>
+        
+        <!-- Digital time -->
+        <div class="digital-time" id="digitalTime"></div>
+    </div>
+</div>
+<button id="speed">2x</button>
+<script src="clock.js"></script>
+</body>
+</html>
