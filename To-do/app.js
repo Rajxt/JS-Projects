@@ -38,6 +38,7 @@ function renderToBeComp(){
        
         
         ul.appendChild(li)
+
         
 
     });
@@ -59,6 +60,7 @@ function renderComp(){
            })
         compList.appendChild(li)
     });
+ 
 }
 
 
@@ -73,7 +75,7 @@ but.addEventListener("click",(e)=>{
         console.log(untasks);     
     }
     e.preventDefault();
-    
+    saveTasks();
 });
 
 ul.addEventListener("change", (e)=>{
@@ -93,6 +95,7 @@ ul.addEventListener("change", (e)=>{
         }
         
     }
+    saveTasks();
 })
 
 compList.addEventListener("change", (e)=>{
@@ -113,6 +116,7 @@ compList.addEventListener("change", (e)=>{
         renderComp();
         li.remove();
     }
+    saveTasks();
 }
     
 })
@@ -126,6 +130,7 @@ ul.addEventListener("click", (e)=>{
             untasks.splice(index,1);
             li.remove();
         }
+        saveTasks();
     }
 });
 compList.addEventListener("click", (e)=>{
@@ -138,7 +143,21 @@ compList.addEventListener("click", (e)=>{
             compTasks.splice(index,1)
             li.remove();
         }
+        saveTasks();
     }
 });
+function saveTasks(){
+    localStorage.setItem("uncompletedTasks",JSON.stringify(untasks));
+    localStorage.setItem("CompletedTasks", JSON.stringify(compTasks));
+}
 
+
+const storedUntasks = JSON.parse(localStorage.getItem("uncompletedTasks"));
+const storedCompTasks = JSON.parse(localStorage.getItem("CompletedTasks"));
+
+if (storedUntasks) untasks.push(...storedUntasks);
+if (storedCompTasks) compTasks.push(...storedCompTasks);
+
+renderToBeComp();
+renderComp();
 
