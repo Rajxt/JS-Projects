@@ -2,7 +2,8 @@ const inp = document.getElementById('inp');
 const but = document.getElementById('but');
 const ul = document.getElementById('list');
 const compList = document.getElementById('complist');
-const checkBx = document.getElementById('check')
+const checkBx = document.getElementById('check');
+
 
 const untasks = []
 const compTasks =[]
@@ -23,6 +24,8 @@ function getValue(){
 
 console.log(untasks)
 
+
+
 function renderToBeComp(){
     ul.innerHTML = "";
     untasks.forEach((task)=>{
@@ -39,6 +42,7 @@ function renderToBeComp(){
 
     });
 }
+
 
 function renderComp(){
     compList.innerHTML = "";
@@ -57,12 +61,6 @@ function renderComp(){
     });
 }
 
-function popValue(val){
-    const index = untasks.indexOf(val);
-    if(index !== -1){
-        untasks.splice(index, 1);
-    }
-}
 
 but.addEventListener("click",(e)=>{
     value = getValue();
@@ -91,8 +89,9 @@ ul.addEventListener("change", (e)=>{
             console.log("uncomp:",untasks)
             renderComp();
             renderToBeComp();
+            li.remove();
         }
-        li.remove();
+        
     }
 })
 
@@ -112,9 +111,34 @@ compList.addEventListener("change", (e)=>{
         console.log("uncomp:",untasks)
         renderToBeComp();
         renderComp();
+        li.remove();
     }
 }
-    li.remove();
+    
 })
+ul.addEventListener("click", (e)=>{
+    if(e.target.classList.contains("material-symbols-outlined")){
+        const li = e.target.closest("li");
+        const span = li.querySelector("span")
+        const text = span.innerText;
+        const index = untasks.indexOf(text)
+        if(index !== -1){
+            untasks.splice(index,1);
+            li.remove();
+        }
+    }
+});
+compList.addEventListener("click", (e)=>{
+    if(e.target.classList.contains("material-symbols-outlined")){
+        const li = e.target.closest("li");
+        const span = li.querySelector("span")
+        const text = span.innerText;
+        const index = compTasks.indexOf(text)
+        if(index !== -1){
+            compTasks.splice(index,1)
+            li.remove();
+        }
+    }
+});
 
 
